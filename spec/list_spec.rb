@@ -28,5 +28,17 @@ describe(List) do
     end
   end
 
+  describe("#tasks") do
+    it("returns a list of tasks associated with the list.") do
+      test_list = List.new({:name => "test list", :id => nil})
+      test_list.save
+      test_task = Task.new({:description => "Clean your room", :id => nil, :list_id => test_list.id})
+      test_task.save
+      expect(test_list.tasks).to eq([test_task])
+    end
+
+  end
+
+
 
 end

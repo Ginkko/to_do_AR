@@ -35,4 +35,15 @@ class List
     found_list = List.new({:name => name, :id => id})
   end
 
+  def tasks
+    tasks = []
+    results = DB.exec("SELECT * FROM tasks WHERE list_id = #{@id};")
+    results.each() do |result|
+      description = result.fetch("description")
+      id = result.fetch("id").to_i
+      list_id = result.fetch("list_id").to_i
+      tasks.push(Task.new({:description => description, :id => id, :list_id => list_id}))
+    end
+    tasks
+  end
 end

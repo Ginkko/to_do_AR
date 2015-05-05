@@ -1,0 +1,8 @@
+<h1 class = "page-header text-center"><%= @list.name() %> Details</h1>
+
+<h4><%= @list.name()%>:</h4>
+<ul>
+  <% @list.tasks.each do |task| %>
+    <li><%= task.description %></li>
+  <% end %>
+</ul>
