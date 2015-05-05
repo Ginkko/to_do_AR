@@ -20,6 +20,11 @@ get('/list/new') do
   erb(:list_form)
 end
 
+get('/list/:id') do
+  @list = List.find(params.fetch('id'))
+  erb(:tasks)
+end
+
 post('/lists') do
   name = params.fetch("name")
   new_list = List.new({:name => name, :id => nil})

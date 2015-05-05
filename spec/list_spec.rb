@@ -18,5 +18,15 @@ describe(List) do
     end
   end
 
+  describe(".find") do
+    it("returns a list with a given id") do
+      list1 = List.new({:name => "new list", :id => nil})
+      list2 = List.new({:name => "second list", :id => nil})
+      list1.save
+      list2.save
+      expect(List.find(list2.id)).to(eq(list2))
+    end
+  end
+
 
 end
