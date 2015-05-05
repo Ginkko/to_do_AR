@@ -1,0 +1,9 @@
+<h1 class="page-header text-center">Add Task to <%= @list.name %></h1>
+
+<form action="/list/<%=@list.id %>" method="post">
+  <div class = "form-group"
+    <label for="description">Task Description:</label>
+    <input type="text" name="description">
+  </div>
+  <button class="btn btn-info" id="submit" type="submit">Submit</button>
+</form>

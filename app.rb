@@ -32,3 +32,17 @@ post('/lists') do
   @lists = List.all()
   erb(:lists)
 end
+
+get('/list/:id/new') do
+  @list = List.find(params.fetch('id'))
+  erb(:task_form)
+end
+
+post('/list/:id') do
+  description = params.fetch("description")
+  list_id = params.fetch("id").to_i
+  new_task = Task.new({:description => description, :list_id => list_id, :id => nil})
+  new_task.save
+  @list = List.find(list_id)
+  erb(:tasks)
+end
