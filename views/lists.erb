@@ -1,0 +1,7 @@
+<h1 class="text-center page-header">Lists</h1>
+
+<ul>
+<% @lists.each do |list| %>
+  <li><a href="/list/<%= list.id %>"><%= list.name %></a></li>
+<% end %>
+</ul>
